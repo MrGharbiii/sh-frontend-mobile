@@ -1,12 +1,27 @@
 // types/navigation.ts
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
+export type RootStackParamList = {
+  Auth: undefined;
+  Questionnaire: undefined;
+  Home: undefined;
+};
 
 export type AuthStackParamList = {
   Login: undefined;
   Signup: undefined;
-  Home: undefined; // Add other screens here
 };
 
-// Define prop types for each screen
-export type LoginScreenProps = NativeStackScreenProps<AuthStackParamList, 'Login'>;
-export type SignupScreenProps = NativeStackScreenProps<AuthStackParamList, 'Signup'>;
+export type QuestionnaireStackParamList = {
+  BasicInfo: undefined;
+  MedicalHistory: undefined;
+  Lifestyle: undefined;
+  Goals: undefined;
+  Summary: undefined;
+};
+
+// Navigation prop types
+export type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Auth'>;
+export type SignupScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Auth'>;
+export type BasicInfoScreenNavigationProp = NativeStackNavigationProp<QuestionnaireStackParamList, 'BasicInfo'>;
+// Add similar types for other screens
